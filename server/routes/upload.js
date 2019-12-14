@@ -33,7 +33,7 @@ app.put('/upload/:ruta/:id', [verificaToken], (req, res) => {
             }
         });
     }
-    archivo.mv(`./uploads/${ruta}/${nombre}`, (err) => {
+    archivo.mv(`../../uploads/${ruta}/${nombre}`, (err) => {
         if (err) {
             return res.status(500).json({
                 ok: false,

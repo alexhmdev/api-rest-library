@@ -4,6 +4,7 @@
     const Usuario = require('./usuario');
 
     let Schema = mongoose.Schema;
+<<<<<<< HEAD
 
     let formatDate = (date) => {
         let d = new Date(date),
@@ -14,6 +15,9 @@
         return [year, month, day].join('/');
     }
 
+=======
+    
+>>>>>>> 0bc33e6a496a3bee6eb17f017ccd121aac895dd0
     let prestamoSchema = new Schema({
 
         codigoLibro: {
@@ -28,7 +32,11 @@
         },
         fechaSalida: {
             type: Date,
+<<<<<<< HEAD
             default: formatDate(Date())
+=======
+            default: Date()
+>>>>>>> 0bc33e6a496a3bee6eb17f017ccd121aac895dd0
         },
         fechaDevolucion: {
             type: Date

@@ -29,7 +29,7 @@ app.put('/upload/:ruta/:id', [verificaToken], (req, res) => {
         return res.status(400).json({
             ok: false,
             err: {
-                message: "solo exensiones <png,jpg,gif,jpeg> aon validas"
+                message: "solo exensiones <png,jpg,gif,jpeg, jfif> aon validas"
             }
         });
     }
@@ -98,7 +98,7 @@ function imagenUsuario(id, res, nombreImagen) {
 }
 
 function borrarArchivo(nombreImagen, ruta) {
-    let pathImg = path.resolve(__dirname, `../../uploads/${ruta}/${nombreImagen}`);
+    let pathImg = path.resolve(__dirname, `./uploads/${ruta}/${nombreImagen}`);
     if (fs.existsSync(pathImg)) {
         fs.unlinkSync(pathImg);
     }

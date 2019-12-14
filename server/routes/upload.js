@@ -33,7 +33,7 @@ app.put('/upload/:ruta/:id', [verificaToken], (req, res) => {
             }
         });
     }
-    archivo.mv(`../../uploads/${ruta}/${nombre}`, (err) => {
+    archivo.mv(`./uploads/${ruta}/${nombre}`, (err) => {
         if (err) {
             return res.status(500).json({
                 ok: false,
@@ -98,7 +98,7 @@ function imagenUsuario(id, res, nombreImagen) {
 }
 
 function borrarArchivo(nombreImagen, ruta) {
-    let pathImg = path.resolve(__dirname, `../../uploads/${ruta}/${nombreImagen}`);
+    let pathImg = path.resolve(__dirname, `./uploads/${ruta}/${nombreImagen}`);
     if (fs.existsSync(pathImg)) {
         fs.unlinkSync(pathImg);
     }

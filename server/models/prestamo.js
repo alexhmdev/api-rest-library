@@ -31,7 +31,7 @@
         },
         fechaSalida: {
             type: Date,
-            default: Date()
+            default: formatDate(Date())
         },
         fechaDevolucion: {
             type: Date

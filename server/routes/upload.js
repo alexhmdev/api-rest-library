@@ -29,11 +29,11 @@ app.put('/upload/:ruta/:id', [verificaToken], (req, res) => {
         return res.status(400).json({
             ok: false,
             err: {
-                message: "solo exensiones <png,jpg,gif,jpeg> aon validas"
+                message: "solo exensiones <png,jpg,gif,jpeg, jfif> aon validas"
             }
         });
     }
-    archivo.mv(`./uploads/${ruta}/${nombre}`, (err) => {
+    archivo.mv(`../../uploads/${ruta}/${nombre}`, (err) => {
         if (err) {
             return res.status(500).json({
                 ok: false,

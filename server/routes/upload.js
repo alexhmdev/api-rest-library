@@ -5,6 +5,9 @@ const path = require('path');
 const { verificaToken } = require('../middlewares/autenticacion');
 const fs = require('fs');
 const app = express();
+const libro = require('./usuario');
+
+const usuario = require('./libro');
 
 const Usuario = require('../models/usuario');
 app.use(fileUpload());

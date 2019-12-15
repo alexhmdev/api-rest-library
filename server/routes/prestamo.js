@@ -29,7 +29,7 @@ app.post('/prestamo', [verificaToken], (req, res) => {
 });
 
 app.get('/prestamo', [verificaToken], (req, res) => {
-    Prestamo.find({ estado: true }).populate('usuario').populate('libro')
+    Prestamo.find({ estado: true }).populate('codigoUsuario').populate('codigoLibro')
         .exec((err, prestamos) => {
             if (err) {
                 return res.status(400).json({

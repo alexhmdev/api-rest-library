@@ -26,7 +26,7 @@ let usuarioSchema = new Schema({
     },
     estado: {
         type: Boolean,
-        default: false
+        default: true
     },
     img: {
         type: String,

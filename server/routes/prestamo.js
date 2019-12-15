@@ -97,7 +97,7 @@ app.delete('/prestamo/:id', [verificaToken], (req, res) => {
 app.delete('/deletePrestamo/:id', [verificaToken], (req, res) => {
     let id = req.params.id;
 
-    Prestamo.findOneAndDelete(id, (err, resp) => {
+    Prestamo.findOneAndDelete({ _id: id }, (err, resp) => {
         if (err) {
             return res.status(400).json({
                 ok: false,

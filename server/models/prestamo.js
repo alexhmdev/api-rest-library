@@ -22,7 +22,8 @@
             default: Date()
         },
         fechaDevolucion: {
-            type: Date
+            type: Date,
+            required: true
         },
         estado: {
             type: Boolean,

@@ -7,8 +7,6 @@ const app = express();
 app.post('/prestamo', [verificaToken], (req, res) => {
     let body = req.body;
     let prestamo = new Prestamo({
-        // codigoLibro: req.libro._id,
-        // codigoUsuario: req.usuario._id,
         codigoLibro: body.codigoLibro,
         codigoUsuario: body.codigoUsuario,
         fechaDevolucion: body.fechaDevolucion

@@ -29,7 +29,24 @@ app.post('/prestamo', [verificaToken], (req, res) => {
 });
 
 app.get('/prestamo', [verificaToken], (req, res) => {
-    Prestamo.find({ estado: true }).populate('codigoUsuario').populate('codigoLibro')
+    Prestamo.find({}).populate('codigoUsuario').populate('codigoLibro')
+        .exec((err, prestamos) => {
+            if (err) {
+                return res.status(400).json({
+                    ok: false,
+                    err
+                });
+            }
+            return res.status(200).json({
+                ok: true,
+                count: prestamos.length,
+                prestamos
+            });
+        });
+});
+app.get('/prestamo/:id', [verificaToken], (req, res) => {
+    let id = req.params.id;
+    Prestamo.find({ _id: id }).populate('codigoUsuario').populate('codigoLibro')
         .exec((err, prestamos) => {
             if (err) {
                 return res.status(400).json({
@@ -66,7 +83,7 @@ app.put('/prestamo/:id', [verificaToken], (req, res) => {
 app.delete('/prestamo/:id', [verificaToken], (req, res) => {
     let id = req.params.id;
 
-    Prestamo.findByIdAndUpdate(id, { estado: false }, { new: true, runValidators: true, context: 'query' }, (err, resp) => {
+    Prestamo.findByIdAndUpdate(id, { estado: true }, { new: true, runValidators: true, context: 'query' }, (err, resp) => {
         if (err) {
             return res.status(400).json({
                 ok: false,
